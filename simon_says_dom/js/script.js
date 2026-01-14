@@ -30,3 +30,14 @@ function generateUniqueRandomNumbers(howMany, min, max) {
   }
   return numbers;
 }
+
+function renderNumbers(numbers) {
+  numbersListEl.innerHTML = "";
+
+  numbers.forEach((n) => {
+    const li = document.createElement("li");
+    li.textContent = n;
+    li.className = "fs-2 fw-bold";
+    numbersListEl.appendChild(li);
+  });
+}
