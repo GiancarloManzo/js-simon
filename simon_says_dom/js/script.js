@@ -111,5 +111,22 @@ function getValidatedUserNumber() {
       hasError = true;
       return;
     }
+    userNumbers.push(value);
   });
+
+  if (hasError) {
+    showMessage("Inserisci solo numeri validi (1-50) in tutti i campi.", true);
+    return null;
+  }
+
+  const duplicates = getDuplicates(userNumbers);
+  if (duplicates.length > 0) {
+    inputs.forEach((inp) => {
+      const v = parseInt(inp.value.trim(), 10);
+      if (duplicates.includes(v)) inp.classList.add("is-invalid");
+    });
+    showMessage("Non puoi inserire due numeri uguali.", true);
+    return null;
+  }
+  return userNumbers;
 }
