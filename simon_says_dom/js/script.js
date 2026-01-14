@@ -7,3 +7,10 @@ const inputGroup = document.getElementById("input-group");
 const messageEl = document.getElementById("message");
 
 const inputs = document.querySelectorAll("input");
+
+const TOTAL_SECONDS = 30;
+const NUMBERS_COUNT = 5;
+
+let numbersToguess = [];
+let secondsLeft = TOTAL_SECONDS;
+let intervalId = null;
