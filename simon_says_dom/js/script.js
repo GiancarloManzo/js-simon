@@ -8,7 +8,7 @@ const messageEl = document.getElementById("message");
 
 const inputs = document.querySelectorAll("input");
 
-const TOTAL_SECONDS = 30;
+const TOTAL_SECONDS = 5;
 const NUMBERS_COUNT = 5;
 
 let numbersToGuess = [];
@@ -59,3 +59,10 @@ intervalId = setInterval(() => {
     hideNumbersShowForm();
   }
 }, 1000);
+
+function hideNumbersShowForm() {
+  numbersListEl.classList.add("d-none");
+  instructionsEl.textContent =
+    "Ora inserisci i 5 bnumeri che ricordi (ordine libero.)";
+  answersForm.classList.remove("d-none");
+}
