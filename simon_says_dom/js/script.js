@@ -41,3 +41,8 @@ function renderNumbers(numbers) {
     numbersListEl.appendChild(li);
   });
 }
+
+numbersToguess = generateUniqueRandomNumbers(NUMBERS_COUNT, 1, 50);
+renderNumbers(numbersToguess);
+
+instructionsEl.textContent = "Memorizza i numeri entro il tempo limite!";
