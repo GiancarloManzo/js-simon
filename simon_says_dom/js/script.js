@@ -48,3 +48,14 @@ console.log("numbersToGuess:", numbersToGuess);
 console.log("UL html:", numbersListEl.innerHTML);
 
 instructionsEl.textContent = "Memorizza i numeri entro il tempo limite!";
+
+countDownEl.textContent = secondsLeft;
+intervalId = setInterval(() => {
+  secondsLeft--;
+  countDownEl.textContent = secondsLeft;
+
+  if (secondsLeft <= 0) {
+    clearInterval(intervalId);
+    hideNumbersShowForm();
+  }
+}, 1000);
