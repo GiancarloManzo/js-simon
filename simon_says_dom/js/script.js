@@ -44,8 +44,6 @@ function renderNumbers(numbers) {
 
 numbersToGuess = generateUniqueRandomNumbers(NUMBERS_COUNT, 1, 50);
 renderNumbers(numbersToGuess);
-console.log("numbersToGuess:", numbersToGuess);
-console.log("UL html:", numbersListEl.innerHTML);
 
 instructionsEl.textContent = "Memorizza i numeri entro il tempo limite!";
 
@@ -75,4 +73,16 @@ function showMessage(text, isError = false) {
 function resetValidationUI() {
   showMessage("");
   inputs.forEach((inp) => inp.classList.remove("is-invalid"));
+}
+
+function getDuplicates(arr) {
+  const dups = [];
+
+  arr.forEach((num, idx) => {
+    if (arr.indexOf(num) !== idx && !dups.includes(num)) {
+      dups.push(num);
+    }
+  });
+
+  return dups;
 }
