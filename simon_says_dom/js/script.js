@@ -105,5 +105,11 @@ function getValidatedUserNumber() {
 
     const minAttr = parseInt(inp.min, 10);
     const maxAttr = parseInt(inp.max, 10);
+
+    if (value < minAttr || value > maxAttr) {
+      inp.classList.add("is-invalid");
+      hasError = true;
+      return;
+    }
   });
 }
