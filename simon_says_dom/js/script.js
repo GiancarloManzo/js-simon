@@ -66,3 +66,13 @@ function hideNumbersShowForm() {
     "Ora inserisci i 5 bnumeri che ricordi (ordine libero.)";
   answersForm.classList.remove("d-none");
 }
+
+function showMessage(text, isError = false) {
+  messageEl.textContent = text;
+  messageEl.classList.toggle("text-success", !isError);
+}
+
+function resetValidationUI() {
+  showMessage("");
+  inputs.forEach((inp) => inp.classList.remove("is-invalid"));
+}
