@@ -86,3 +86,24 @@ function getDuplicates(arr) {
 
   return dups;
 }
+
+function getValidatedUserNumber() {
+  resetValidationUI();
+
+  const userNumbers = [];
+  let hasError = false;
+
+  inputs.forEach((inp) => {
+    const raw = inp.value.trim();
+    const value = parseInt(raw, 10);
+
+    if (raw === "" || Number.isNaN(value)) {
+      inp.classList.add("is-valid");
+      hasError = true;
+      return;
+    }
+
+    const minAttr = parseInt(inp.min, 10);
+    const maxAttr = parseInt(inp.max, 10);
+  });
+}
