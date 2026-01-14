@@ -130,3 +130,20 @@ function getValidatedUserNumber() {
   }
   return userNumbers;
 }
+
+answersForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const userNumbers = getValidatedUserNumber();
+  if (!userNumbers) return;
+
+  const guessed = userNumbers.filter((n) => numbersToGuess.includes(n));
+
+  if (guessed.length === 0) {
+    showMessage("Hai indovinato 0 numeri :/", true);
+  } else {
+    showMessage(
+      `Hai indovinato ${guessed.lenght} numero/i: ${guessed.join(",")}✅`
+    );
+  }
+});
