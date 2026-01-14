@@ -11,7 +11,7 @@ const inputs = document.querySelectorAll("input");
 const TOTAL_SECONDS = 30;
 const NUMBERS_COUNT = 5;
 
-let numbersToguess = [];
+let numbersToGuess = [];
 let secondsLeft = TOTAL_SECONDS;
 let intervalId = null;
 
@@ -21,7 +21,7 @@ function getRandomInt(min, max) {
 
 function generateUniqueRandomNumbers(howMany, min, max) {
   const numbers = [];
-  while (numbers.lenght < howMany) {
+  while (numbers.length < howMany) {
     const n = getRandomInt(min, max);
 
     if (!numbers.includes(n)) {
@@ -42,7 +42,9 @@ function renderNumbers(numbers) {
   });
 }
 
-numbersToguess = generateUniqueRandomNumbers(NUMBERS_COUNT, 1, 50);
-renderNumbers(numbersToguess);
+numbersToGuess = generateUniqueRandomNumbers(NUMBERS_COUNT, 1, 50);
+renderNumbers(numbersToGuess);
+console.log("numbersToGuess:", numbersToGuess);
+console.log("UL html:", numbersListEl.innerHTML);
 
 instructionsEl.textContent = "Memorizza i numeri entro il tempo limite!";
